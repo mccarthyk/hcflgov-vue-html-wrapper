@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://commbocc.github.io/html-wrapper/static/css/app.css">
+  <!-- cssViaJs: false -->
+  <!-- <link rel="stylesheet" href="https://commbocc.github.io/html-wrapper/static/css/app.css"> -->
 
   <title>hcflgov</title>
 </head>
@@ -15,7 +16,7 @@
   <div id="hc-main" class="d-flex flex-column">
     <header>
       <!-- https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160105/G1 -->
-      <nav is="hc-navigation" logo-href="./" skip-content-link="#main-content"></nav>
+      <nav is="hc-navbar" logo-href="./" skip-content-link="#main-content"></nav>
 
       <ol is="hc-banner" title="hcflgov">
         <!-- ancestors -->
@@ -23,18 +24,30 @@
       </ol>
     </header>
 
-    <main id="main-content">
-      <div id="app"></div>
+    <main id="main-content" class="py-5">
+      <div class="container">
+
+        <ul>
+          <li v-for="n in 10">{{ n }}</li>
+        </ul>
+
+      </div>
     </main>
 
     <footer is="hc-footer" class="mt-auto"></footer>
   </div>
 
-  <!-- Optional JavaScript -->
-  <script type="text/javascript" src="https://commbocc.github.io/html-wrapper/static/js/manifest.js"></script>
-  <script type="text/javascript" src="https://commbocc.github.io/html-wrapper/static/js/vendor.js"></script>
-  <script type="text/javascript" src="https://commbocc.github.io/html-wrapper/static/js/app.js"></script>
-
+  <script src="https://unpkg.com/vue@2.5.11/dist/vue.js"></script>
   <script src="./dist/build.js"></script>
+
+  <script type="text/javascript">
+  Vue.use(Hcflgov, {
+    // cssViaJs: false
+  })
+
+  new Vue({
+    el: '#hc-main'
+  })
+  </script>
 </body>
 </html>

@@ -2,12 +2,14 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/hcflgov.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'build.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    library: 'Hcflgov',
+    libraryExport: 'default'
   },
   module: {
     rules: [

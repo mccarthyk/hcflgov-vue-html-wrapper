@@ -11,3 +11,12 @@
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // background: #f00 !important;
+}
+
+@import url("https://commbocc.github.io/html-wrapper/static/css/app.css");

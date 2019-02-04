@@ -1,6 +1,6 @@
 # hcflgov
 
-> A Vue.js project
+> A Vue.js plugin
 
 ## Build Setup
 
