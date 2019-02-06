@@ -1,0 +1,6 @@
+#hc-footer {
+  @include gradient-bg($secondary, 2%);
+  .logo {
+    max-height: 50px;
+  }
+}

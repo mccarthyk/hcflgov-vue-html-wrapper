@@ -1,0 +1,8 @@
+@mixin gradient-bg($color, $lighten-percent: 5%) {
+  $color-light: lighten($color, $lighten-percent);
+	background: $info; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color', endColorstr='$color-light',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}

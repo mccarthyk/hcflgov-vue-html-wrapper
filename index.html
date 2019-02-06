@@ -5,49 +5,74 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <!-- cssViaJs: false -->
-  <!-- <link rel="stylesheet" href="https://commbocc.github.io/html-wrapper/static/css/app.css"> -->
+  <link rel="stylesheet" href="./dist/build.css">
+  <!-- Vue.use(Hcflgov, { cssViaJs: true })  -->
 
-  <title>hcflgov</title>
+  <title>@hcflgov/vue-html-wrapper</title>
 </head>
 <body>
 
-  <div id="hc-main" class="d-flex flex-column">
+  <main id="hc-main" class="d-flex flex-column">
     <header>
       <!-- https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160105/G1 -->
       <nav is="hc-navbar" logo-href="./" skip-content-link="#main-content"></nav>
 
-      <ol is="hc-banner" title="hcflgov">
+      <ol is="hc-banner" title="@hcflgov/vue-html-wrapper">
         <!-- ancestors -->
         <li class="breadcrumb-item"><a href="./">Home</a></li>
       </ol>
     </header>
 
-    <main id="main-content" class="py-5">
+    <!-- demo -->
+    <section class="bg-white py-5" aria-labelledby="dynamicallyGeneratedSectionId">
       <div class="container">
 
-        <ul>
-          <li v-for="n in 10">{{ n }}</li>
-        </ul>
+        <!-- PLACE CONTENT HERE -->
+
+        <h2 id="dynamicallyGeneratedSectionId">Section Heading with White Background</h2>
+
+        <!-- Vue `v-for` -->
+        <p v-for="n in 2">
+          Lorem {{ n }} ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
 
       </div>
-    </main>
+    </section>
+
+    <!-- demo -->
+    <section class="py-5" aria-labelledby="dynamicallyGeneratedSectionId2">
+      <div class="container">
+
+        <h2 class="text-center text-secondary mb-4" id="dynamicallyGeneratedSectionId2">Unspecified Background, Styled Heading</h2>
+
+        <p class="text-center">
+          <!-- external links open in a new window `_blank` -->
+          <a href="https://commbocc.github.io/hc-templates-jekyll/toc/" class="btn btn-primary btn-lg px-5 hide-external-indicator" target="_blank">
+            Components
+            <!-- fontawesome library included, consider accessibility `aria-hidden` -->
+            <span class="fas fa-puzzle-piece" aria-hidden="true"></span>
+          </a>
+        </p>
+
+        <p class="text-center">
+          <a href="https://getbootstrap.com/" class="btn btn-secondary" target="_blank">Bootstrap</a>
+          <a href="https://vuejs.org/" class="btn btn-secondary" target="_blank">VueJs</a>
+        </p>
+
+      </div>
+    </section>
 
     <footer is="hc-footer" class="mt-auto"></footer>
-  </div>
+  </main>
 
-  <script src="https://unpkg.com/vue@2.5.11/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
   <script src="./dist/build.js"></script>
 
   <script type="text/javascript">
-  Vue.use(Hcflgov, {
-    // cssViaJs: false
-  })
-
+  Vue.use(Hcflgov);
   new Vue({
     el: '#hc-main'
-  })
+  });
   </script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+// external links
+a[target=_blank] {
+  &:not(.hide-external-indicator):not(.card)::after,
+  & .show-external-indicator:after {
+    font-family: 'Segoe UI Symbol' !important;
+    content: " \29C9";
+  }
+}
+
+.hide-external-indicator a[target=_blank]::after {
+  content: "" !important;
+}

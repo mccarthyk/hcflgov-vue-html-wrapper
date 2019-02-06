@@ -1,16 +1,41 @@
-// import 'hc-html-wrapper/dist/static/js/manifest'
-// import 'hc-html-wrapper/dist/static/js/vendor'
-// import 'hc-html-wrapper/dist/static/js/app'
+import defaultOptions from './options'
+import components from './components'
+import './assets/bootstrap'
 
-import Vue from 'vue'
-import App from './App.vue'
+export default class Hcflgov {
+  static install (Vue, options) {
+    options = Object.assign(defaultOptions, options)
 
-// import router from './router'
-// import store from './store'
+    Vue.prototype.$hcHtmlWrapper = new Vue({
+      ...new this(),
+      ...options
+    })
 
-new Vue({
-  el: '#app',
-  // router,
-  // store,
-  render: h => h(App)
-})
+    Vue.mixin({
+      components
+    })
+
+    if (options.cssViaJs) {
+      const Style = Vue.component('HcStyle', components.HcStyle)
+      new Style()
+    }
+  }
+
+  constructor () {
+    return {
+      data () {
+        return {}
+      },
+      methods: {},
+      computed: {
+        navbarEndpoint () {
+          return 'https://www.hillsboroughcounty.org/apis/v1/endpoints/navbar'
+        },
+        // TODO: footerEndpoint
+        // footerEndpoint () {
+        //   return 'https://www.hillsboroughcounty.org/apis/v1/endpoints/footer'
+        // }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import 'fonts';
+
+/*!
+* Hillsborough County HTML Wrapper
+*/
+@import 'custom';
+@import '~bootstrap/scss/bootstrap';
+
+// global
+@import 'mixins/gradients';
+@import 'print';
+
+// components
+@import 'banner';
+@import 'breadcrumbs';
+@import 'buttons';
+@import 'cards';
+@import 'jumbotron';
+@import 'links';
+@import 'navbar';
+@import 'navigation';
+@import 'rte';
+@import 'tables';
+@import 'footer';
+
+#hc-main,
+html, body {
+  height: 100%;
+}
+
+.sticky {
+  position: sticky;
+  top: $spacer;
+}
+
+.sticky-top {
+  position: sticky;
+}
+
+.text-shadow {
+  text-shadow: #000 2px 2px 3px;
+}
+
+
+// @import url("https://commbocc.github.io/html-wrapper/static/css/app.css");

@@ -1,0 +1,19 @@
+// sidebar nav
+// https://getbootstrap.com/docs/4.0/components/navs/#vertical
+.nav.flex-column {
+	// indent nested navs
+	.nav.flex-column {
+		margin-left: 1rem;
+	}
+	// links
+	.nav-link {
+		color: theme-color("secondary");
+		border-top: solid 1px theme-color("info");
+		&.active {
+			font-weight: bold;
+		}
+		&:hover:not(.active) {
+			color: theme-color("info");
+		}
+	}
+}
