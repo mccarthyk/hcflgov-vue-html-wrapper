@@ -1,7 +1,7 @@
 {
   "name": "@hcflgov/vue-html-wrapper",
   "description": "A Vue.js plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Kevin McCarthy <mccarthyk@hcflgov.net>",
   "license": "MIT",
   "private": false,
