@@ -6,7 +6,7 @@ module.exports = {
   entry: ['./src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'dist/',
+    publicPath: './',
     filename: 'build.js',
     libraryTarget: 'umd',
     library: 'HcHtmlWrapper',
@@ -25,24 +25,7 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'vue-style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              // If you are having trouble with urls not resolving add this setting.
-              // See https://github.com/webpack-contrib/css-loader#url
-              url: true,
-              minimize: true,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              url: true,
-              minimize: true,
-              sourceMap: true
-            }
-          }]
+          use: ['css-loader', 'sass-loader']
         })
       },
       // {
