@@ -9,7 +9,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js',
     libraryTarget: 'umd',
-    library: 'Hcflgov',
+    library: 'HcHtmlWrapper',
     libraryExport: 'default'
   },
   module: {

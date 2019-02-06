@@ -2,7 +2,7 @@ import defaultOptions from './options'
 import components from './components'
 import './assets/bootstrap'
 
-export default class Hcflgov {
+export default class HcHtmlWrapper {
   static install (Vue, options) {
     options = Object.assign(defaultOptions, options)
 
