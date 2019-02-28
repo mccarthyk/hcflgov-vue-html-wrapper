@@ -8,4 +8,8 @@
     @extend .font-serif, .font-italic ;
   }
 
+  a:not(.btn):not(.list-group-item) {
+    text-decoration: underline;
+  }
+
 }

@@ -5,26 +5,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="./dist/build.css">
-  <!-- Vue.use(HcHtmlWrapper, { cssViaJs: true })  -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@hcflgov/vue-html-wrapper/dist/build.css"> -->
+  <!-- <link rel="stylesheet" href="./dist/build.css"> -->
 
   <title>@hcflgov/vue-html-wrapper</title>
 </head>
 <body>
 
   <main id="hc-main" class="d-flex flex-column">
-    <header>
+    <header class="v-card mb-1">
       <!-- https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160105/G1 -->
       <nav is="hc-navbar" logo-href="./" skip-content-link="#main-content"></nav>
 
-      <ol is="hc-banner" title="@hcflgov/vue-html-wrapper">
+      <section v-if="jumbo" is="hc-parallax" gradient="primary" src="https://commbocc.github.io/hc-templates-jekyll/assets/images/Tampa-Downtown-Skyline.jpg" :height="350">
+
+        <div class="text-center sr-only">
+          <h1 class="font-weight-bold display-4">
+            Hillsborough County, Florida
+          </h1>
+          <span class="h3 font-italic font-serif">
+            Established 1834
+          </span>
+        </div>
+
+        <p class="text-center">
+          <a href="https://commbocc.github.io/hc-templates-jekyll/toc/" class="btn btn-lg btn-primary hide-external-indicator" target="_blank">
+            Components
+          </a>
+        </p>
+
+        <p class="text-center">
+          <a href="https://getbootstrap.com/" class="btn btn-secondary" target="_blank">Bootstrap</a>
+          <a href="https://vuejs.org/" class="btn btn-secondary" target="_blank">Vue.Js</a>
+        </p>
+      </section>
+
+      <ol v-else is="hc-banner" title="@hcflgov/vue-html-wrapper">
         <!-- ancestors -->
         <li class="breadcrumb-item"><a href="./">Home</a></li>
       </ol>
     </header>
 
+    <div id="main-content"></div>
+
     <!-- demo -->
-    <section class="bg-white py-5" aria-labelledby="dynamicallyGeneratedSectionId">
+    <section v-if="true" class="bg-white py-5" aria-labelledby="dynamicallyGeneratedSectionId">
       <div class="container">
 
         <!-- PLACE CONTENT HERE -->
@@ -32,8 +57,14 @@
         <h2 id="dynamicallyGeneratedSectionId">Section Heading with White Background</h2>
 
         <!-- Vue `v-for` -->
-        <p v-for="n in 2">
-          Lorem {{ n }} ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <div class="rte">
+          <p v-for="n in 2">
+            Lorem {{ n }} ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+
+        <p>
+          <a href="#" @click.prevent="jumbo = !jumbo" class="btn btn-primary">Toggle Header</a>
         </p>
 
       </div>
@@ -45,19 +76,95 @@
 
         <h2 class="text-center text-secondary mb-4" id="dynamicallyGeneratedSectionId2">Unspecified Background, Styled Heading</h2>
 
-        <p class="text-center">
-          <!-- external links open in a new window `_blank` -->
-          <a href="https://commbocc.github.io/hc-templates-jekyll/toc/" class="btn btn-primary btn-lg px-5 hide-external-indicator" target="_blank">
-            Components
-            <!-- fontawesome library included, consider accessibility `aria-hidden` -->
-            <span class="fas fa-puzzle-piece" aria-hidden="true"></span>
-          </a>
-        </p>
+        <div class="row">
+          <div class="col-md-8">
 
-        <p class="text-center">
-          <a href="https://getbootstrap.com/" class="btn btn-secondary" target="_blank">Bootstrap</a>
-          <a href="https://vuejs.org/" class="btn btn-secondary" target="_blank">VueJs</a>
-        </p>
+            <div class="row"><div class="col-6"><p><a href="#" class="btn btn-primary btn-block">Search Dogs</a></p></div> <div class="col-6"><p><a href="#" class="btn btn-primary btn-block">Search Cats</a></p></div></div>
+
+            <!-- rte -->
+            <div class="rte">
+
+              <p v-for="n in 2">Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="text-center">
+                <a v-for="n in 5" href="#" class="btn" :class="(n == 5) ? 'btn-outline-primary' : 'btn-primary'">Button {{ n }}</a>
+              </p>
+              <p v-for="n in 3">Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              <!-- accordion -->
+              <ul is="hc-accordion" class="mb-3 mb-md-0">
+                <li is="hc-accordion-item" open>
+                  <div slot="header">Open Accordion Header</div>
+                  <p>
+                    Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </li>
+                <li is="hc-accordion-item" v-for="n in 4" :key="n">
+                  <div slot="header">Item {{ n + 1 }}</div>
+                  <p>
+                    Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+          <div class="col-md-4">
+
+            <!-- nav links -->
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+
+            <!-- sticky -->
+            <div class="sticky">
+
+              <!-- card -->
+              <div class="card v-card">
+                <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                  <strong class="m-0 h6 font-weight-bold">
+                    Lorem ipsum dolor sit amet
+                  </strong>
+                </div>
+
+                <!-- rte -->
+                <div class="rte">
+                  <!-- accordion -->
+                  <ul is="hc-accordion" :multiple="false">
+                    <li is="hc-accordion-item" open>
+                      <div slot="header">Open Accordion Header</div>
+                      <p>
+                        Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      </p>
+                    </li>
+                    <li is="hc-accordion-item" v-for="n in 4" :key="n">
+                      <div slot="header">Item {{ n + 1 }}</div>
+                      <p>
+                        Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       </div>
     </section>
@@ -69,9 +176,13 @@
   <script src="./dist/build.js"></script>
 
   <script type="text/javascript">
-  Vue.use(HcHtmlWrapper);
+  // Vue.use(HcHtmlWrapper);
+  Vue.use(HcHtmlWrapper, { cssViaJs: true });
   new Vue({
-    el: '#hc-main'
+    el: '#hc-main',
+    data: {
+      jumbo: true
+    }
   });
   </script>
 </body>

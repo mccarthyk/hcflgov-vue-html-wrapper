@@ -5,6 +5,9 @@ a[target=_blank] {
     font-family: 'Segoe UI Symbol' !important;
     content: " \29C9";
   }
+  &.btn:after {
+    padding-left: 0.25rem;
+  }
 }
 
 .hide-external-indicator a[target=_blank]::after {

@@ -11,6 +11,10 @@
 		border-top: solid 1px theme-color("info");
 		&.active {
 			font-weight: bold;
+			color: $primary;
+		}
+		&.disabled {
+			color: $gray-600;
 		}
 		&:hover:not(.active) {
 			color: theme-color("info");

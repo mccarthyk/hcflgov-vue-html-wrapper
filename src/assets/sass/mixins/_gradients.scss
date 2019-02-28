@@ -1,8 +1,16 @@
 @mixin gradient-bg($color, $lighten-percent: 5%) {
   $color-light: lighten($color, $lighten-percent);
-	background: $info; /* Old browsers */
+	background: $color; /* Old browsers */
 	background: -moz-linear-gradient(-45deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(135deg,  $color 0%, $color 50%, $color-light 51%, $color-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color', endColorstr='$color-light',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin gradient-diag($color1, $color2, $opacity: 0.8) {
+  background: none; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  rgba($color1, $opacity), rgba($color2, $opacity)); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba($color1, $opacity), rgba($color2, $opacity)); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba($color1, $opacity), rgba($color2, $opacity)); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba($color1, $opacity)', endColorstr='rgba($color2, $opacity)',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }

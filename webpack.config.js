@@ -2,11 +2,14 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
+const extractSCSS = new ExtractTextPlugin('build.css')
+// const extractSTYL = new ExtractTextPlugin('material.css')
+
 module.exports = {
   entry: ['./src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './',
+    publicPath: (process.env.NODE_ENV === 'production') ? './' : '/dist/',
     filename: 'build.js',
     libraryTarget: 'umd',
     library: 'HcHtmlWrapper',
@@ -23,11 +26,26 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
+        use: extractSCSS.extract({
           fallback: 'vue-style-loader',
           use: ['css-loader', 'sass-loader']
         })
       },
+      {
+        test: /\.styl$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ],
+      },
+      // {
+      //   test: /\.styl$/,
+      //   use: extractSTYL.extract({
+      //     fallback: 'vue-style-loader',
+      //     use: ['css-loader', 'stylus-loader']
+      //   })
+      // },
       // {
       //   test: /\.sass$/,
       //   use: [
@@ -41,9 +59,9 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
+            // // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            // // the "scss" and "sass" values for the lang attribute to the right configs here.
+            // // other preprocessors should work out of the box, no loader config like this necessary.
             'scss': [
               'vue-style-loader',
               'css-loader',
@@ -53,6 +71,11 @@ module.exports = {
               'vue-style-loader',
               'css-loader',
               'sass-loader?indentedSyntax'
+            ],
+            'styl': [
+              'vue-style-loader',
+              'css-loader',
+              'stylus-loader'
             ]
           }
           // other vue-loader options go here
@@ -128,6 +151,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
-    new ExtractTextPlugin("build.css")
+    extractSCSS,
+    // extractSTYL
   ])
 }

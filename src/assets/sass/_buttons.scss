@@ -14,3 +14,27 @@
 .btn-wrap {
   white-space: normal !important;
 }
+
+// vuetify
+@import "vuetify/buttons";
+
+.btn:not(.btn-link) {
+  @extend .v-btn;
+
+  &.btn-lg {
+    @extend .v-btn--large;
+  }
+
+  &.btn-sm {
+    @extend .v-btn--small;
+  }
+
+  &.btn-block {
+    @extend .v-btn--block;
+  }
+  
+  &.btn-icon {
+    @extend .v-btn--icon;
+    margin: 0;
+  }
+}

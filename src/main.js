@@ -6,6 +6,7 @@ export default class HcHtmlWrapper {
   static install (Vue, options) {
     options = Object.assign(defaultOptions, options)
 
+
     Vue.prototype.$hcHtmlWrapper = new Vue({
       ...new this(),
       ...options
@@ -23,9 +24,8 @@ export default class HcHtmlWrapper {
 
   constructor () {
     return {
-      data () {
-        return {}
-      },
+      data: () => ({
+      }),
       methods: {},
       computed: {
         navbarEndpoint () {
