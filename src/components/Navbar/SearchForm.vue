@@ -9,7 +9,7 @@
         <div id="hc-nav-search-input-group" class="input-group input-group-lg">
           <input class="form-control" name="q" type="search" placeholder="Search For..." aria-label="Search Input" ref="searchInput" required>
           <div class="input-group-append">
-            <button type="submit" class="btn btn-link">
+            <button type="submit" class="btn btn-link text-primary">
               <span class="fas fa-fw fa-search" aria-label="Search"></span>
             </button>
           </div>
