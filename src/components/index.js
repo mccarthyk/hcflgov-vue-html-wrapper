@@ -1,16 +1,10 @@
-import HcStyle from './Style'
-import HcNavbar from './Navbar'
-import HcBanner from './Banner'
-import HcFooter from './Footer'
-import HcParallax from './Parallax'
-import * as Accordion from './Accordion'
+export { default as HcBanner } from './Banner'
+export { default as HcFooter } from './Footer'
+export { default as HcGradientCard } from './GradientCard'
+export { default as HcIconBtn } from './IconButton'
+export { default as HcNavbar } from './Navbar'
+export { default as HcParallax } from './Parallax'
 
-export default {
-  HcStyle,
-  HcNavbar,
-  HcBanner,
-  HcFooter,
-  HcParallax,
-  ...Accordion,
-
-}
+export * from './Accordion'
+export * from './Htv'
+export * from './Search'

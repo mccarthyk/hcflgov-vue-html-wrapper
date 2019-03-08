@@ -1,4 +1,2 @@
-import HcAccordion from './Accordion'
-import HcAccordionItem from './Item'
-
-export { HcAccordion, HcAccordionItem }
+export { default as HcAccordion } from './Accordion'
+export { default as HcAccordionItem } from './Item'

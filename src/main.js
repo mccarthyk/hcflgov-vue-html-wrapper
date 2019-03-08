@@ -1,11 +1,11 @@
 import defaultOptions from './options'
-import components from './components'
+import * as components from './components'
+import './assets/sass/main.scss'
 import './assets/bootstrap'
 
 export default class HcHtmlWrapper {
   static install (Vue, options) {
     options = Object.assign(defaultOptions, options)
-
 
     Vue.prototype.$hcHtmlWrapper = new Vue({
       ...new this(),
@@ -13,13 +13,8 @@ export default class HcHtmlWrapper {
     })
 
     Vue.mixin({
-      components
+      components: { ...components }
     })
-
-    if (options.cssViaJs) {
-      const Style = Vue.component('HcStyle', components.HcStyle)
-      new Style()
-    }
   }
 
   constructor () {
