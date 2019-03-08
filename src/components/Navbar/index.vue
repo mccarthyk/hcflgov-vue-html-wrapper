@@ -81,11 +81,6 @@ export default {
       })
     }
   },
-  computed: {
-    logoUrl () {
-      return 'https://github.com/Commbocc/html-wrapper/raw/master/src/assets/hc-logo-horizontal-RGB.png'
-    }
-  },
   props: {
     logoHref: {
       type: String,

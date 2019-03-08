@@ -15,7 +15,7 @@
 
         <div class="col-lg-3 col-md-6 mb-4 order-lg-1 order-md-3">
           <a href="https://hillsboroughcounty.org" :target="linkTargets">
-            <img :src="logoUrl" alt="Hillsborough County Logo" class="logo img-fluid">
+            <img src="../assets/hc-logo-horizontal-RGB_drkbgrd.png" alt="Hillsborough County Logo" class="logo img-fluid">
           </a>
         </div>
 
@@ -124,8 +124,7 @@ export default {
         href: 'https://www.linkedin.com/company/hillsborough-county',
         iconClass: 'fab fa-linkedin'
       }
-    ],
-    logoUrl: 'https://raw.githubusercontent.com/Commbocc/html-wrapper/master/src/assets/hc-logo-horizontal-RGB_drkbgrd.png'
+    ]
   })
 }
 </script>
