@@ -14,3 +14,9 @@
   background: linear-gradient(135deg, rgba($color1, $opacity), rgba($color2, $opacity)); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba($color1, $opacity)', endColorstr='rgba($color2, $opacity)',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+@each $color, $value in $theme-colors {
+  .gradient-diag-#{$color} {
+    @include gradient-diag($value, $secondary, 0.8);
+  }
+}

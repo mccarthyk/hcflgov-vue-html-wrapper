@@ -29,16 +29,22 @@ html, body {
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: $spacer;
 }
 
 .sticky-top {
+  position: -webkit-sticky;
   position: sticky;
 }
 
 .text-shadow {
   text-shadow: #000 2px 2px 3px;
+}
+
+.bg-light hr {
+  background: #ccc;
 }
 
 

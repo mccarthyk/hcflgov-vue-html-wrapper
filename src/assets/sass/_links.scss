@@ -13,3 +13,7 @@ a[target=_blank] {
 .hide-external-indicator a[target=_blank]::after {
   content: "" !important;
 }
+
+.page-link {
+  color: $primary;
+}
