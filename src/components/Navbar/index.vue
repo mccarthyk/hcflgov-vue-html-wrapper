@@ -6,7 +6,7 @@
       <a :href="skipContentLink" class="sr-only">Skip to Main Content</a>
 
       <a class="navbar-brand" :href="logoHref" :target="logoTarget">
-        <img :src="logoUrl" alt="Hillsborough County Logo" class="logo">
+        <img src="../../assets/hc-logo-horizontal-RGB.png" alt="Hillsborough County Logo" class="logo">
       </a>
 
       <button ref="navToggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

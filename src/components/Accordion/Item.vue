@@ -43,10 +43,18 @@ export default {
   created () {
     if (!this.$slots.header) console.warn('The accordion item has no header')
   },
+  methods: {
+    hide () {
+      $( this.$refs.collapse ).collapse( 'hide' )
+    },
+    show () {
+      $( this.$refs.collapse ).collapse( 'show' )
+    }
+  },
   mounted () {
     $( this.$refs.collapse ).on('show.bs.collapse', () => { this.expanded = true })
     $( this.$refs.collapse ).on('hide.bs.collapse', () => { this.expanded = false })
-    if (this.open) $( this.$refs.collapse ).collapse( 'show' )
+    if (this.open) this.show()
   }
 }
 </script>

@@ -52,67 +52,80 @@
 
 <script>
 import Links from '../mixins/links'
-import '../assets/google-translate'
+
+window.googleTranslateElementInit = function () {
+  new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,de,en,es,fr,ht,pt,vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element')
+}
 
 export default {
   mixins: [Links],
-  data () {
-    return {
-      footerLinks: [
-        {
-          text: 'Board of County Commissioners',
-          href: 'https://hillsboroughcounty.org/government/board-of-county-commissioners'
-        },
-        {
-          text: 'Contact Us',
-          href: 'https://hillsboroughcounty.org/about-hillsborough/contact-us'
-        },
-        {
-          text: 'County Locations',
-          href: 'https://hillsboroughcounty.org/residents/citizens/county-locations'
-        },
-        {
-          text: 'Jobs',
-          href: 'https://hillsboroughcounty.org/about-hillsborough/jobs'
-        },
-        {
-          text: 'HCFL Alert Information',
-          href: 'https://hillsboroughcounty.org/residents/public-safety/emergency-management/hcfl-alert'
-        },
-        {
-          text: 'Accessibility',
-          href: 'https://hillsboroughcounty.org/government/departments/ada'
-        }
-      ],
-      socialLinks: [
-        {
-          name: 'Facebook',
-          href: 'https://www.facebook.com/HillsboroughFL/',
-          iconClass: 'fab fa-facebook'
-        },
-        {
-          name: 'Twitter',
-          href: 'https://twitter.com/HillsboroughFL',
-          iconClass: 'fab fa-twitter'
-        },
-        {
-          name: 'YouTube',
-          href: 'https://www.youtube.com/user/HillsboroughCounty',
-          iconClass: 'fab fa-youtube'
-        },
-        {
-          name: 'InstaGram',
-          href: 'https://www.instagram.com/hillsboroughfl/',
-          iconClass: 'fab fa-instagram'
-        },
-        {
-          name: 'LinkedIn',
-          href: 'https://www.linkedin.com/company/hillsborough-county',
-          iconClass: 'fab fa-linkedin'
-        }
-      ],
-      logoUrl: 'https://raw.githubusercontent.com/Commbocc/html-wrapper/master/src/assets/hc-logo-horizontal-RGB_drkbgrd.png'
+  mounted () {
+    this.initGoogTranslate()
+  },
+  methods: {
+    initGoogTranslate (a, b) {
+      a = document.createElement('script')
+      b = document.getElementsByTagName('script')[0]
+      a.async = 1
+      a.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      b.parentNode.insertBefore(a, b)
     }
-  }
+  },
+  data: () => ({
+    footerLinks: [
+      {
+        text: 'Board of County Commissioners',
+        href: 'https://hillsboroughcounty.org/government/board-of-county-commissioners'
+      },
+      {
+        text: 'Contact Us',
+        href: 'https://hillsboroughcounty.org/about-hillsborough/contact-us'
+      },
+      {
+        text: 'County Locations',
+        href: 'https://hillsboroughcounty.org/residents/citizens/county-locations'
+      },
+      {
+        text: 'Jobs',
+        href: 'https://hillsboroughcounty.org/about-hillsborough/jobs'
+      },
+      {
+        text: 'HCFL Alert Information',
+        href: 'https://hillsboroughcounty.org/residents/public-safety/emergency-management/hcfl-alert'
+      },
+      {
+        text: 'Accessibility',
+        href: 'https://hillsboroughcounty.org/government/departments/ada'
+      }
+    ],
+    socialLinks: [
+      {
+        name: 'Facebook',
+        href: 'https://www.facebook.com/HillsboroughFL/',
+        iconClass: 'fab fa-facebook'
+      },
+      {
+        name: 'Twitter',
+        href: 'https://twitter.com/HillsboroughFL',
+        iconClass: 'fab fa-twitter'
+      },
+      {
+        name: 'YouTube',
+        href: 'https://www.youtube.com/user/HillsboroughCounty',
+        iconClass: 'fab fa-youtube'
+      },
+      {
+        name: 'InstaGram',
+        href: 'https://www.instagram.com/hillsboroughfl/',
+        iconClass: 'fab fa-instagram'
+      },
+      {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/company/hillsborough-county',
+        iconClass: 'fab fa-linkedin'
+      }
+    ],
+    logoUrl: 'https://raw.githubusercontent.com/Commbocc/html-wrapper/master/src/assets/hc-logo-horizontal-RGB_drkbgrd.png'
+  })
 }
 </script>

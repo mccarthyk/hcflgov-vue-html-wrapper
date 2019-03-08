@@ -11,6 +11,14 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    hideAll () {
+      this.$children.forEach(x => x.hide())
+    },
+    showAll () {
+      this.$children.forEach(x => x.show())
+    }
   }
 }
 </script>
