@@ -5,6 +5,7 @@
   "author": "Kevin McCarthy <mccarthyk@hcflgov.net>",
   "license": "MIT",
   "private": false,
+  "homepage": "https://github.com/Commbocc/hcflgov-vue-html-wrapper",
   "main": "/dist/HcHtmlWrapper.umd.min.js",
   "style": "/dist/HcHtmlWrapper.css",
   "scripts": {
