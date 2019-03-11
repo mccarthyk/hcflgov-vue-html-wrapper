@@ -26,11 +26,12 @@
             <div class="dropdown-menu hc-nav-search-dropdown-menu">
 
               <!-- search -->
-              <SearchForm ref="searchForm" :action="formAction" :method="formMethod" :target="formTarget" show-filters="formShowFilters" />
+              <SearchForm ref="searchForm" :action="formAction" :method="formMethod" :target="formTarget" :show-filters="showFormFilters" />
 
             </div>
           </li>
 
+          <!-- @slot When `customNav` is set to true custom [Bootstrap `.nav-items`](https://getbootstrap.com/docs/4.3/components/navbar/) can be used -->
           <slot v-if="customNav"></slot>
 
           <li v-else v-for="link in navLinks" class="nav-item order-lg-1 dropdown">
@@ -61,10 +62,13 @@ import Links from '../../mixins/links'
 import SearchForm from './SearchForm'
 
 export default {
+  name: 'hc-navbar',
   mixins: [Links],
   components: { SearchForm },
   mounted () {
-    this.fetchNavLinks()
+    if (!this.customNav) {
+      this.fetchNavLinks()
+    }
   },
   data () {
     return {
@@ -75,6 +79,10 @@ export default {
     fetchNavLinks () {
       axios.get(this.$hcHtmlWrapper.navbarEndpoint).then(res => this.navLinks = res.data)
     },
+    /**
+    * Focus the search input
+    * @public
+    */
     focusSearch () {
       this.$nextTick(() => {
         this.$refs.searchForm.focusSearch()
@@ -82,39 +90,65 @@ export default {
     }
   },
   props: {
+    /**
+    * The URL (absolute or relative) that the logo links to
+    */
     logoHref: {
       type: String,
       default: 'https://hillsboroughcounty.org'
     },
+    /**
+    * The [HTML target attribute](https://www.w3schools.com/tags/att_a_target.asp) of the logo
+    */
     logoTarget: {
       type: String,
       default: '_self'
     },
-    // search form props
+    /**
+    * Shows or hides the search form dropdown in the navbar
+    */
     showForm: {
       type: Boolean,
       default: true
     },
+    /**
+    * The [HTML form Action attribute](https://www.w3schools.com/tags/att_form_action.asp) of the search form
+    */
     formAction: {
       type: String,
       default: 'https://hillsboroughcounty.org/search'
     },
+    /**
+    * The [HTML form method attribute](https://www.w3schools.com/tags/att_form_method.asp) of the search form
+    */
     formMethod: {
       type: String,
       default: 'get'
     },
+    /**
+    * The [HTML form target attribute](https://www.w3schools.com/tags/att_form_target.asp) of the search form
+    */
     formTarget: {
       type: String,
       default: '_self'
     },
-    formShowFilters: {
+    /**
+    * Shows or hides the content type filters below the search form
+    */
+    showFormFilters: {
       type: Boolean,
       default: true
     },
+    /**
+    * When set to true the  can be used to populate custom [nav content](https://getbootstrap.com/docs/4.0/components/navbar/#nav)
+    */
     customNav: {
       type: Boolean,
       default: false
     },
+    /**
+    * The [W3C G1](https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160105/G1) identifier that skips to the main content of a page
+    */
     skipContentLink: {
       type: String,
       default: '#main-content'
@@ -122,3 +156,23 @@ export default {
   }
 }
 </script>
+
+<docs>
+  ```html
+  <!-- use Hillsborough County navigation links -->
+  <header>
+    <nav is="hc-navbar" logo-href="./" class="v-card"></nav>
+  </header>
+  ```
+
+  ```html
+  <!-- use custom navigation links -->
+  <header>
+    <nav is="hc-navbar" custom-nav logo-href="./" class="v-card">
+      <li class="nav-item">
+        <a class="nav-link" href="#">A Custom Link</a>
+      </li>
+    </nav>
+  </header>
+  ```
+</docs>

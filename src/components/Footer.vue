@@ -58,6 +58,7 @@ window.googleTranslateElementInit = function () {
 }
 
 export default {
+  name: 'hc-footer',
   mixins: [Links],
   mounted () {
     this.initGoogTranslate()
@@ -128,3 +129,9 @@ export default {
   })
 }
 </script>
+
+<docs>
+  ```html
+  <footer is="hc-footer" class="mt-auto"></footer>
+  ```
+</docs>

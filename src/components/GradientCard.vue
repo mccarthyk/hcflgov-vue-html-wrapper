@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name: 'hc-gradient-card',
   props: {
     imgSrc: {
       type: String,

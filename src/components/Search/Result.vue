@@ -33,6 +33,7 @@
 
 <script>
 export default {
+  name: 'hc-search-result',
   props: {
     post: {
       type: Object,

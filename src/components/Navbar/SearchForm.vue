@@ -41,6 +41,7 @@
 // import $ from 'jquery'
 
 export default {
+  name: 'hc-navbar-search-form',
   props: ['action', 'method', 'target', 'showFilters'],
   // mounted () {
   //   $(this.$parent.$refs.navSearchDropdown).on('shown.bs.dropdown', () => this.focusSearch())
