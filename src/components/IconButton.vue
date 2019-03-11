@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'hc-icon-btn',
   props: {
     icon: {
       type: String,

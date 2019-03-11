@@ -8,6 +8,7 @@
 
       <nav aria-label="Breadcrumb Navigation">
         <ol class="breadcrumb hc-banner-breadcrumb mb-0">
+          <!-- @slot Use this slot to place breadcrumb items in the banner -->
           <slot></slot>
           <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
         </ol>
@@ -19,7 +20,11 @@
 
 <script>
 export default {
+  name: 'hc-banner',
   props: {
+    /**
+     * Sets and styles the H1 of the banner
+     */
     title: {
       type: String,
       required: true
@@ -27,3 +32,11 @@ export default {
   }
 }
 </script>
+
+<docs>
+  ```html
+  <ol is="hc-banner" title="The Page Title">
+    <li class="breadcrumb-item"><a href="./">Home</a></li>
+  </ol>
+  ```
+</docs>

@@ -1,18 +1,16 @@
 {
   "name": "@hcflgov/vue-html-wrapper",
-  "description": "A Vue.js plugin",
   "version": "2.0.1",
-  "author": "Kevin McCarthy <mccarthyk@hcflgov.net>",
-  "license": "MIT",
   "private": false,
-  "homepage": "https://github.com/Commbocc/hcflgov-vue-html-wrapper",
-  "main": "/dist/HcHtmlWrapper.umd.min.js",
-  "style": "/dist/HcHtmlWrapper.css",
+  "description": "A Vue.js plugin",
+  "author": "Kevin McCarthy <mccarthyk@hcflgov.net>",
   "scripts": {
     "serve": "vue-cli-service serve src/demo.js",
     "build": "vue-cli-service build --target lib --name HcHtmlWrapper --formats umd-min src/main.js",
+    "all": "npm run build && npm run demo && npm run styleguide:build",
     "demo": "vue-cli-service build --dest demo src/demo.js",
-    "all": "npm run build && npm run demo"
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
@@ -29,7 +27,12 @@
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vue-cli-plugin-styleguidist": "^3.8.2",
     "vue-template-compiler": "^2.5.21",
     "vuetify": "^1.5.5"
-  }
+  },
+  "homepage": "https://github.com/Commbocc/hcflgov-vue-html-wrapper",
+  "license": "MIT",
+  "main": "/dist/HcHtmlWrapper.umd.min.js",
+  "style": "/dist/HcHtmlWrapper.css"
 }

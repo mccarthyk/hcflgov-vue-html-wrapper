@@ -2,6 +2,7 @@
   <li class="list-group-item p-0">
     <a data-toggle="collapse" :href="`#collapse${_uid}`" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" :aria-controls="`collapse${_uid}`" :aria-expanded="expanded">
       <div :id="`heading${_uid}`">
+        <!-- @slot Place the header of the accordion item here -->
         <slot name="header"></slot>
       </div>
       <i class="icon" :class="[icon, expandedClass]"></i>
@@ -9,6 +10,7 @@
 
     <div ref="collapse" :id="`collapse${_uid}`" :aria-labelledby="`heading${_uid}`" class="collapse" :data-parent="parentAttr">
       <div class="card-body">
+        <!-- @slot Place the content of the accrodion item here -->
         <slot></slot>
       </div>
     </div>
@@ -19,11 +21,18 @@
 import $ from 'jquery'
 
 export default {
+  name: 'hc-accordion-item',
   props: {
+    /**
+    * The icon class. The icon will be rotated 180 degrees when expanded
+    */
     icon: {
       type: String,
       default: 'fas fa-chevron-down'
     },
+    /**
+    * Expanded on mount
+    */
     open: {
       type: Boolean,
       default: false
@@ -71,3 +80,18 @@ $bezier: cubic-bezier(0.25, 0.8, 0.5, 1);
   }
 }
 </style>
+
+<docs>
+  ```html
+  <ul is="hc-accordion">
+    <li is="hc-accordion-item" open>
+      <slot name="header">Header 1</slot>
+      Content 1
+    </li>
+    <li is="hc-accordion-item">
+      <slot name="header">Header 2</slot>
+      Content 2
+    </li>
+  </ul>
+  ```
+</docs>

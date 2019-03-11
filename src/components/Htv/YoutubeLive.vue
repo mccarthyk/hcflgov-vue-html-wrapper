@@ -14,11 +14,18 @@
 import axios from 'axios'
 
 export default {
+  name: 'hc-htv-youtube-live',
   props: {
+    /**
+    * A [Google API](https://developers.google.com/youtube/v3/docs/) key
+    */
     apiKey: {
       type: String,
       required: true
     },
+    /**
+    * The YouTube Channel ID. If the channel is broadcasting, the first video of the [request](https://developers.google.com/youtube/v3/docs/search/list#request) will be shown
+    */
     channelId: {
       type: String,
       default: 'UCvdfJe4Q4u9YudwH89yJkDQ'
@@ -47,3 +54,9 @@ export default {
   }
 }
 </script>
+
+<docs>
+  ```html
+  <section is="hc-htv-youtube-live" api-key="..."></section>
+  ```
+</docs>
