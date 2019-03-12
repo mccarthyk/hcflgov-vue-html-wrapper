@@ -1,5 +1,7 @@
 # @hcflgov/vue-html-wrapper
 
+![NPM](https://img.shields.io/npm/v/@hcflgov/vue-html-wrapper.svg)
+
 ## Basic Use
 
 ```html
