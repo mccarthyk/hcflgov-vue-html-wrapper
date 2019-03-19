@@ -1,10 +1,10 @@
 export { default as HcFooter } from './Footer'
-export { default as HcGradientCard } from './GradientCard'
 export { default as HcIconBtn } from './IconButton'
 export { default as HcParallax } from './Parallax'
 
 export * from './Accordion'
 export * from './Banner'
+export * from './Cards'
 export * from './Htv'
 export * from './Navbar'
 export * from './Search'

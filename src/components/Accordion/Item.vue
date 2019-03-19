@@ -85,11 +85,11 @@ $bezier: cubic-bezier(0.25, 0.8, 0.5, 1);
   ```html
   <ul is="hc-accordion">
     <li is="hc-accordion-item" open>
-      <slot name="header">Header 1</slot>
+      <span slot="header">Header 1</span>
       Content 1
     </li>
     <li is="hc-accordion-item">
-      <slot name="header">Header 2</slot>
+      <span slot="header">Header 2</span>
       Content 2
     </li>
   </ul>

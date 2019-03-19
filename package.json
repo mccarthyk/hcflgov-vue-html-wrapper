@@ -21,8 +21,8 @@
     "vue": "^2.6.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-plugin-babel": "^3.5.1",
+    "@vue/cli-service": "^3.5.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",

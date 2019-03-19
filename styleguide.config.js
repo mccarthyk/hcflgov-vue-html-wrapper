@@ -8,7 +8,7 @@ module.exports = {
   styleguideDir: 'docs',
   ignore: [
     '**/components/Navbar/SearchForm.vue',
-    '**/components/GradientCard.vue',
+    '**/components/Cards/*.vue',
     '**/components/IconButton.vue',
     '**/components/Search/Result.vue'
   ]

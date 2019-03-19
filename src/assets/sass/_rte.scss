@@ -1,11 +1,21 @@
 .rte {
 
   h1, h2, h3, h4, h5, h6 {
-    @extend .font-serif, .mt-4 ;
+    // @extend .font-serif, .mt-4, .mb-3 ;
+    @extend .mt-4, .mb-3 ;
+    color: $secondary;
+    font-weight: bold;
   }
 
+  h1 { font-size: $h1-font-size * 0.8; }
+  h2 { font-size: $h2-font-size * 0.8; }
+  h3 { font-size: $h3-font-size * 0.8; }
+  h4 { font-size: $h4-font-size * 0.8; }
+  h5 { font-size: $h5-font-size * 0.8; }
+  h6 { font-size: $h6-font-size * 0.8; }
+
   & > .lead {
-    @extend .font-serif, .font-italic ;
+    @extend .font-italic ;
   }
 
   a:not(.btn):not(.list-group-item) {

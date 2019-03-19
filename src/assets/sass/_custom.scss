@@ -13,9 +13,11 @@ $body-bg:     #f5f7f8 !default;
 // $body-color:  #212529 !default;
 $link-color:  #E01A00 !default;
 
+$font-size-base: 1.1rem !default;
 $font-family-sans-serif: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
+$line-height-base: 1.55 !default;
 
 $nav-tabs-border-color:                #ddd !default;
 $nav-tabs-link-active-color:           $secondary !default;
