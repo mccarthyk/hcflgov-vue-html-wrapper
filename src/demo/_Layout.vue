@@ -27,9 +27,14 @@
         </span>
       </div>
 
-      <ol v-else is="hc-banner" :title="pageTitle">
-        <li class="breadcrumb-item"><a href="./">Home</a></li>
-      </ol>
+      <div v-else is="hc-banner" :title="pageTitle">
+        <!-- accessibility fallback for when Javascript is disabled -->
+        <h1>The Page Title</h1>
+
+        <ol slot="breadcrumbs" is="hc-banner-breadcrumbs" :active="pageTitle">
+          <li class="breadcrumb-item"><a href="./">Home</a></li>
+        </ol>
+      </div>
     </header>
 
     <!-- sudo router -->
