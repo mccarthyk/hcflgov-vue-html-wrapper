@@ -22,35 +22,18 @@
         <hr>
 
         <div class="row align-items-stretch justify-content-center">
-          <div v-for="(img, i) in featured" class="col-md-6 col-lg-4 mb-4">
 
-            <div class="card h-100">
-              <a href="#" class="card-img-top position-relative">
-                <div class="gradient-diag-info position-absolute py-1 px-2 text-white small text-shadow" style="bottom: 0;">
-                  Category
-                </div>
-                <img :src="img" alt="" class="img-fluid">
-              </a>
-
-              <div class="card-body">
-                <h4 class="text-secondary font-weight-bold font-serif">Title of Article</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <span v-if="i == 1">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-              </div>
-
-              <div class="card-footer bg-white border-0">
-                <a href="#" class="btn btn-outline-primary btn-block">Continue Reading</a>
-              </div>
-            </div>
-
+          <div v-for="(post, i) in posts.slice(0,3)" class="col-md-6 col-lg-4 mb-4">
+            <div is="hc-card-news" :sitecore-item="post" :key="i" :date="new Date"></div>
           </div>
+
         </div>
 
       </div>
     </section>
 
     <!-- all news parallax -->
-    <div is="hc-parallax" gradient="warning" :height="175">
+    <div is="hc-parallax" gradient="warning" :height="200">
       <h2 class="text-center font-serif font-weight-bold text-shadow m-0">All News</h2>
     </div>
 
@@ -92,7 +75,7 @@
             <div class="sticky my-3">
 
               <!-- filters -->
-              <div class="card border-0 v-card">
+              <div class="card">
                 <div class="card-header h6 text-secondary d-flex justify-content-between pr-3">
                   <strong class="font-weight-bold font-serif">Filters</strong>
                   <div class="">
@@ -102,7 +85,7 @@
                   </div>
                 </div>
 
-                <ul v-show="filters" ref="filterAcc" is="hc-accordion" multiple>
+                <ul v-show="filters" ref="filterAcc" is="hc-accordion" multiple flush>
                   <li is="hc-accordion-item" open>
                     <strong class=" text-muted m-0" slot="header">Types</strong>
                     <div v-for="n in 5" class="form-check">
@@ -144,7 +127,7 @@
 
             <div class="">
               <!-- posts -->
-              <div is="hc-search-result" v-for="post in posts" :key="post.id" :post="post" class="mb-3 v-card" :suggested="post.id == 1"></div>
+              <div is="hc-search-result" v-for="(post, i) in posts" :key="i" :sitecore-item="post" :date="new Date" class="mb-3 v-card" :suggested="i == 0"></div>
             </div>
 
           </div>
@@ -187,7 +170,7 @@
           </div>
           <div class="col-md-6">
             <nav class="nav flex-column">
-              <a v-for="post in posts.slice(1,10)" :key="post.id" href="#" class="nav-link">{{ post.title }}</a>
+              <a v-for="(post, i) in posts.slice(0,8)" :key="i" href="#" class="nav-link">{{ post.Heading }}</a>
             </nav>
           </div>
         </div>
@@ -198,25 +181,17 @@
 </template>
 
 <script>
+import posts from './posts'
+
 export default {
   data: () => ({
     filters: true,
-    featured: [
-      'https://www.hillsboroughcounty.org/library/hillsborough/creditcard_nr.png',
-      'https://www.hillsboroughcounty.org/library/hillsborough/smallkitten_nr.png',
-      'https://www.hillsboroughcounty.org/library/hillsborough/campday3.jpg'
-    ],
     posts: []
   }),
-  methods: {
-    fetchPosts () {
-      fetch('https://jsonplaceholder.typicode.com/posts?_limit=15').then(res => res.json()).then(posts => (this.posts = posts))
-    }
-  },
   mounted () {
+    this.posts = posts
     this.$parent.jumbo = false
     this.$parent.pageTitle = 'Newsroom'
-    this.fetchPosts()
   }
 }
 </script>

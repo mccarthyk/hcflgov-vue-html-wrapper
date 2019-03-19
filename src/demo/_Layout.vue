@@ -44,11 +44,7 @@
         Demo Options
       </button>
 
-      <form v-if="demoOptions" class="form-inline bg-dark p-3">
-        <select v-model="selected" class="form-control">
-          <option v-for="view in views" :value="view">{{ view }}</option>
-        </select>
-      </form>
+      <Navbar v-if="demoOptions"/>
     </aside>
 
   </div>
@@ -56,10 +52,12 @@
 
 <script>
 import * as demoViews from './index'
+import Navbar from './_Navbar'
 
 export default {
   components: {
-    ...demoViews
+    ...demoViews,
+    Navbar
   },
   data: () => ({
     demoOptions: false,

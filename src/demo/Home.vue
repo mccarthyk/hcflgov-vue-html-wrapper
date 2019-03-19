@@ -57,33 +57,11 @@
     </section>
 
     <!--  -->
-
     <section class="row no-gutters align-items-stretch" aria-label="Featured News Articles">
-      <div v-for="(card, i) in gradCards" class="col-sm-6 d-flex">
-        <a href="#" is="hc-gradient-card" :gradient="card.gradient" :img-src="card.imgSrc" :right="(i % 2 == 0) ? 'text-sm-right': null">
-          <span slot="header">{{ card.heading }}</span>
-          {{ card.body }}
+      <div v-for="(post, i) in gradCards" class="col-sm-6 d-flex">
+        <a href="#" is="hc-gradient-card" :sitecore-item="post" :date="new Date" :gradient="gradients[i]" :right="(i % 2 == 0)">
         </a>
       </div>
-    </section>
-
-    <section v-if="false" class="row no-gutters align-items-stretch">
-      <a href="#" is="hc-gradient-card" gradient="info" img-src="http://hcflgov.net/library/hillsborough/super-flush_hero3.jpg">
-        <span slot="header">Gradient Card 1</span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </a>
-      <a href="#" is="hc-gradient-card" gradient="warning" img-src="http://hcflgov.net/library/hillsborough/controlled-burn_nr.jpg">
-        <span slot="header">Gradient Card 2</span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </a>
-      <a href="#" is="hc-gradient-card" gradient="danger" img-src="http://hcflgov.net/library/hillsborough/street-hockey_nr.jpg">
-        <span slot="header">Gradient Card 3</span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </a>
-      <a href="#" is="hc-gradient-card" gradient="success" img-src="http://hcflgov.net/library/hillsborough/hc_completed-mural-tampa-bay-history-center_nr2.jpg">
-        <span slot="header">Gradient Card 4</span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </a>
     </section>
 
     <!--  -->
@@ -118,10 +96,18 @@
 </template>
 
 <script>
+import posts from './posts'
+
 export default {
   mounted () {
+    this.gradCards = posts.slice(0,4)
     this.$parent.jumbo = true
     this.$parent.pageTitle = 'Hillsborough County Florida'
+  },
+  computed: {
+    gradients () {
+      return ['info','warning','danger','success']
+    }
   },
   data: () => ({
     qLinks: [
@@ -142,32 +128,7 @@ export default {
       { name: 'Report Animal Emergency or Cruelty', icon: 'fas fa-exclamation-triangle' },
       { name: 'Volunteer & Help Pet Resources', icon: 'fas fa-plus' },
     ],
-    gradCards: [
-      {
-        heading: 'Grad Card 1',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        imgSrc: 'http://hcflgov.net/library/hillsborough/super-flush_hero3.jpg',
-        gradient: 'info'
-      },
-      {
-        heading: 'Grad Card 2',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        imgSrc: 'http://hcflgov.net/library/hillsborough/controlled-burn_nr.jpg',
-        gradient: 'warning'
-      },
-      {
-        heading: 'Grad Card 3',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        imgSrc: 'http://hcflgov.net/library/hillsborough/street-hockey_nr.jpg',
-        gradient: 'danger'
-      },
-      {
-        heading: 'Grad Card 4',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        imgSrc: 'http://hcflgov.net/library/hillsborough/hc_completed-mural-tampa-bay-history-center_nr2.jpg',
-        gradient: 'success'
-      },
-    ],
+    gradCards: [],
     commissioners: [
       {
         name: 'Sandra Murman',
