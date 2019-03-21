@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/Commbocc/hcflgov-vue-html-wrapper",
   "license": "MIT",
-  "main": "/dist/HcHtmlWrapper.umd.min.js",
-  "style": "/dist/HcHtmlWrapper.css"
+  "main": "dist/HcHtmlWrapper.umd.min.js",
+  "style": "dist/HcHtmlWrapper.css"
 }
