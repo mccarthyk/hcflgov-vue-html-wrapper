@@ -129,9 +129,3 @@ export default {
   })
 }
 </script>
-
-<docs>
-  ```html
-  <footer is="hc-footer" class="mt-auto"></footer>
-  ```
-</docs>

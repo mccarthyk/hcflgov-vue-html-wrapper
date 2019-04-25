@@ -54,9 +54,3 @@ export default {
   }
 }
 </script>
-
-<docs>
-  ```html
-  <section is="hc-htv-youtube-live" api-key="..."></section>
-  ```
-</docs>
