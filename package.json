@@ -5,10 +5,10 @@
   "description": "A Vue.js plugin",
   "author": "Kevin McCarthy <mccarthyk@hcflgov.net>",
   "scripts": {
-    "serve": "vue-cli-service serve src/demo.js",
-    "build": "vue-cli-service build --target lib --name HcHtmlWrapper --formats umd,umd-min src/main.js",
-    "all": "npm run build && npm run demo && npm run styleguide:build",
-    "demo": "vue-cli-service build --dest demo src/demo.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib --name HcHtmlWrapper --formats umd,umd-min",
+    "build-demo": "vue-cli-service build --dest demo",
+    "build-all": "npm run build && npm run build-demo && npm run styleguide:build",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build"
   },

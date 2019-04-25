@@ -1,36 +1,20 @@
-import defaultOptions from './options'
-import * as components from './components'
-import './assets/sass/main.scss'
-import './assets/bootstrap'
+// demo
+import Vue from 'vue'
+import HcHtmlWrapper from './App'
+import Demo from './demo/_Layout'
 
-export default class HcHtmlWrapper {
-  static install (Vue, options) {
-    options = Object.assign(defaultOptions, options)
+// vendor
+// import $ from 'jquery'
+import 'popper.js'
+import 'bootstrap'
 
-    Vue.prototype.$hcHtmlWrapper = new Vue({
-      ...new this(),
-      ...options
-    })
+// enable bootstrap popovers
+$(function () {$('[data-toggle="popover"]').popover()})
 
-    Vue.mixin({
-      components: { ...components }
-    })
-  }
+Vue.config.productionTip = false
 
-  constructor () {
-    return {
-      data: () => ({
-      }),
-      methods: {},
-      computed: {
-        navbarEndpoint () {
-          return 'https://www.hillsboroughcounty.org/apis/v1/endpoints/navbar'
-        },
-        // TODO: footerEndpoint
-        // footerEndpoint () {
-        //   return 'https://www.hillsboroughcounty.org/apis/v1/endpoints/footer'
-        // }
-      }
-    }
-  }
-}
+Vue.use(HcHtmlWrapper)
+
+new Vue({
+  render: h => h(Demo)
+}).$mount('#hc-main')

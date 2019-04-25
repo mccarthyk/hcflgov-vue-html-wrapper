@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
-
 export default {
   name: 'hc-accordion-item',
   props: {
@@ -54,15 +52,19 @@ export default {
   },
   methods: {
     hide () {
-      $( this.$refs.collapse ).collapse( 'hide' )
+      this.expanded = false
+      this.$refs.collapse.classList.toggle('collapsing')
+      this.$refs.collapse.classList.remove('show')
+      this.$refs.collapse.classList.toggle('collapsing')
     },
     show () {
-      $( this.$refs.collapse ).collapse( 'show' )
+      this.expanded = true
+      this.$refs.collapse.classList.toggle('collapsing')
+      this.$refs.collapse.classList.add('show')
+      this.$refs.collapse.classList.toggle('collapsing')
     }
   },
   mounted () {
-    $( this.$refs.collapse ).on('show.bs.collapse', () => { this.expanded = true })
-    $( this.$refs.collapse ).on('hide.bs.collapse', () => { this.expanded = false })
     if (this.open) this.show()
   }
 }

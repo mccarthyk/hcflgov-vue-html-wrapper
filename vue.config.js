@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   publicPath: './',
   filenameHashing: false,
@@ -5,8 +7,13 @@ module.exports = {
     extract: true
   },
   configureWebpack: {
-    output: {
-      libraryExport: 'default'
-    }
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jquery: 'jquery',
+        'window.jQuery': 'jquery',
+        jQuery: 'jquery'
+      })
+    ]
   }
 }
