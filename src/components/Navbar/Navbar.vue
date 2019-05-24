@@ -39,7 +39,7 @@
               {{ link.Name }}
             </a>
             <div class="dropdown-menu">
-              <h4 class="d-none d-lg-block text-info font-serif font-weight-bold">{{ link.Name }}</h4>
+              <h4 class="d-none d-lg-block text-info font-weight-bold">{{ link.Name }}</h4>
               <div class="dropdown-menu-2-col">
                 <a v-for="child in link.Children" class="dropdown-item" :href="xLink(child)" :target="linkTargets">
                   {{ child.Name }}

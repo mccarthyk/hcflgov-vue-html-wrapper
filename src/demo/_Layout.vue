@@ -1,7 +1,7 @@
 <template>
   <div id="hc-main" class="d-flex flex-column">
 
-    <aside v-if="alert" class="alert alert-danger mb-0 alert-dismissible fade show" role="alert">
+    <aside v-if="alert" class="alert alert-dark bg-danger v-card mb-1 text-white gradient-diag-danger mb-0 alert-dismissible fade show" role="alert">
       <div class="container">
         <strong>Cold weather in affect!</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
@@ -19,10 +19,10 @@
       <nav is="hc-navbar" logo-href="./" skip-content-link="#main-content" class="v-card"></nav>
 
       <div v-if="jumbo" is="hc-parallax" class="text-center text-shadow">
-        <h1 class="font-weight-bold display-4">
+        <h1 class="font-weight-bold display-2">
           {{ pageTitle }}
         </h1>
-        <span class="h3 font-italic font-serif">
+        <span class="h2 font-italic">
           Established 1834
         </span>
       </div>

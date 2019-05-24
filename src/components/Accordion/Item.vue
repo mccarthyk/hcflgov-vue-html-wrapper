@@ -1,6 +1,6 @@
 <template lang="html">
   <li class="list-group-item p-0">
-    <a data-toggle="collapse" :href="`#collapse${_uid}`" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" :aria-controls="`collapse${_uid}`" :aria-expanded="expanded">
+    <a @click.prevent="toggle" :href="`#collapse${_uid}`" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" :aria-controls="`collapse${_uid}`" :aria-expanded="expanded">
       <div :id="`heading${_uid}`">
         <!-- @slot Place the header of the accordion item here -->
         <slot name="header"></slot>
@@ -26,7 +26,7 @@ export default {
     */
     icon: {
       type: String,
-      default: 'fas fa-chevron-down'
+      default: 'fa fa-chevron-down'
     },
     /**
     * Expanded on mount
@@ -51,6 +51,9 @@ export default {
     if (!this.$slots.header) console.warn('The accordion item has no header')
   },
   methods: {
+    toggle () {
+      (this.expanded) ? this.hide() : this.show()
+    },
     hide () {
       this.expanded = false
       this.$refs.collapse.classList.toggle('collapsing')

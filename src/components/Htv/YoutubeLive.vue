@@ -1,12 +1,10 @@
 <template lang="html">
-  <section v-if="isLive" class="py-0 bg-dark gradient-diag-dark" aria-label="HTV Live">
-    <div class="container">
+  <section v-if="isLive" class="py-3" aria-label="HTV Live">
 
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" :src="emebdUrl" allowfullscreen></iframe>
-      </div>
-
+    <div class="container embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" :src="emebdUrl" allowfullscreen></iframe>
     </div>
+
   </section>
 </template>
 

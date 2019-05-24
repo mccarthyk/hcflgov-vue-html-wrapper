@@ -1,8 +1,8 @@
 <template lang="html">
   <div :class="(card) ? 'card' : null">
 
-    <div :class="(card) ? 'card-header' : 'mb-2'">
-      <ul v-if="tabLinks.length" class="nav nav-tabs" :class="(card) ? 'card-header-tabs' : null" role="tablist">
+    <div :class="(card) ? 'card-header pt-1' : 'mb-1'">
+      <ul v-if="tabLinks.length" class="nav nav-tabs" :class="listClass" role="tablist">
         <li v-for="(tab, i) in tabLinks" class="nav-item">
           <a :class="linkClass(i)" v-bind="linkAttrs(tab, i)">
             {{ tab.title }}
@@ -23,6 +23,13 @@
 export default {
   name: 'hc-tabs',
   props: {
+    /**
+    * Centers the tab links
+    */
+    center: {
+      type: Boolean,
+      default: false
+    },
     /**
     * Wraps the tabs in a card, see [Bootstrap Card Navigation](https://getbootstrap.com/docs/4.3/components/card/#navigation)
     */
@@ -50,6 +57,12 @@ export default {
     },
     firstChildId () {
       return this.tabs[0].componentInstance._uid
+    },
+    listClass () {
+      return [
+        (this.center) ? 'justify-content-center' : null,
+        (this.card) ? 'card-header-tabs' : null
+      ]
     }
   },
   methods: {

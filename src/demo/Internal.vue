@@ -81,7 +81,7 @@
           <div class="col-md-4">
 
             <div class="mb-3 card v-card">
-              <div class="card-header py-3 text-secondary h5 font-weight-bold font-serif">
+              <div class="card-header py-3 text-secondary h5 font-weight-bold font-accent">
                 Contact Communications & Digital Media
               </div>
               <div class="liust-group list-group-flush">
