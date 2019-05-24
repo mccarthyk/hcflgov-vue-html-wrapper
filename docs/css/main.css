@@ -1,4 +1,4 @@
-.icon[data-v-3aa2b8ca] {
+.icon[data-v-a65c7260] {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
@@ -6,7 +6,7 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
-.icon.expanded[data-v-3aa2b8ca] {
+.icon.expanded[data-v-a65c7260] {
     -webkit-transform: rotateX(180deg);
             transform: rotateX(180deg);
 }
