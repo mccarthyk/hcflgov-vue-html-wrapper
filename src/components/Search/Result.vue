@@ -1,34 +1,42 @@
 <template lang="html">
-  <div class="card" :class="suggestedBorderClass">
+  <a :href="url" class="card text-dark text-decoration-none list-group-item-action" :class="suggestedBorderClass">
 
-    <div v-if="suggested" class="card-header bg-info py-3">
-      <span class="text-white h5 m-0 font-weight-bold font-serif">Suggested Result</span>
+    <div v-if="suggested" class="card-header bg-light gradient-diag-info">
+      <span class="text-white h5 m-0 font-italic">Suggested Result</span>
     </div>
 
-    <div class="media card-body border-left result" :class="borderClass">
+    <div class="row no-gutters align-items-stretch">
+      <div class="col">
+        <div class="card-body">
 
-      <div class="mt-2 mr-3 small">
-        <span class="text-secondary fa-fw fa-2x" :class="icon"></span>
+          <h4 class="mt-0 mb-1 text-secondary text-capitalize">
+            {{ heading }}
+          </h4>
+
+          <div class="lead font-italic small">
+            {{ subHeading }}
+          </div>
+
+          <div class="">
+            {{ excerpt }}
+          </div>
+
+          <span class="text-muted small">Posted {{ publishDate.toLocaleString() }} in {{ category }}</span>
+
+        </div>
       </div>
 
-      <div class="media-body">
-        <a :href="url" class="mt-0 mb-1 h4 text-secondary font-serif font-weight-bold text-capitalize">
-          {{ heading }}
-        </a>
-
-        <div class="">
-          {{ excerpt }}
-        </div>
-
-        <div class="d-flex align-items-center justify-content-between">
-          <span class="text-muted small">Posted: {{ publishDate.toLocaleString() }}</span>
-          <a :href="url" class="btn btn-outline-primary btn-sm" aria-label="Read more of Article Title">Read More...</a>
+      <div v-if="hasImg" class="d-none d-sm-block col-sm-3">
+        <div class="h-100 d-flex align-items-end justify-content-end text-right" :style="`background: url(${imgSrc}); background-size: cover; background-position: center center`">
+          <span class="gradient-diag-info text-white small text-truncate px-1">
+            <span :class="icon" aria-hidden="true"></span>
+            {{ category }}
+          </span>
         </div>
       </div>
-
     </div>
 
-  </div>
+  </a>
 </template>
 
 <script>
@@ -49,12 +57,15 @@ export default {
   data: () => ({}),
   computed: {
     suggestedBorderClass () {
-      return (this.suggested) ? 'border border-info border-left-0' : null
+      return (this.suggested) ? 'border border-info' : null
     },
     borderClass () {
       let klasses = ['primary', 'info', 'warning', 'success']
       var klass = klasses[Math.floor(Math.random() * klasses.length)]
       return `border-${klass}`
+    },
+    hasImg () {
+      return (this.imgSrc) ? true : false
     }
   }
 }

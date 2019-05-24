@@ -11,8 +11,6 @@
 @import 'print';
 
 // components
-@import 'banner';
-@import 'breadcrumbs';
 @import 'buttons';
 @import 'cards';
 @import 'jumbotron';
@@ -26,6 +24,8 @@
 #hc-main,
 html, body {
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sticky {
@@ -46,6 +46,3 @@ html, body {
 .bg-light hr {
   background: #ccc;
 }
-
-
-// @import url("https://commbocc.github.io/html-wrapper/static/css/app.css");

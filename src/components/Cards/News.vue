@@ -1,7 +1,10 @@
 <template lang="html">
   <div class="card h-100">
-    <a :href="url" class="card-img-top position-relative">
-      <div class="gradient-diag-info position-absolute py-1 px-2 text-white small text-shadow" style="bottom: 0;">
+
+    <span v-if="hideImg" class="gradient-diag-info pt-1"></span>
+
+    <a v-else :href="url" class="card-img-top d-flex flex-column justify-content-end">
+      <div class="gradient-diag-info position-absolute px-2 text-white small text-truncate">
         <span :class="icon" aria-hidden="true"></span>
         {{ category }}
       </div>
@@ -9,20 +12,23 @@
     </a>
 
     <div class="card-body">
-      <h4 class="text-secondary h5 font-weight-bold font-serif">
+      <h4 class="text-secondary">
         {{ heading }}
       </h4>
 
-      <em class="small text-muted d-block">
-        {{ publishDate.toLocaleString() }}
-      </em>
+      <div class="lead font-italic small">
+        {{ subHeading }}
+      </div>
 
-      {{ excerpt }}
+      <div class="">
+        {{ excerpt }}
+      </div>
+
+      <span class="text-muted small">Posted {{ publishDate.toLocaleString() }} in {{ category }}</span>
+
     </div>
 
-    <div class="card-footer bg-white border-0">
-      <a :href="url" class="btn btn-outline-primary btn-block">Continue Reading</a>
-    </div>
+    <a :href="url" class="card-footer text-right bg-white border-0">Read More &raquo;</a>
   </div>
 </template>
 
@@ -31,6 +37,12 @@ import SitecoreContentItemMixin from '../../mixins/Sitecore/ContentItem'
 
 export default {
   name: 'hc-card-news',
-  mixins: [SitecoreContentItemMixin]
+  mixins: [SitecoreContentItemMixin],
+  props: {
+    hideImg: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>

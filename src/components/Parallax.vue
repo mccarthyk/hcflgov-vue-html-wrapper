@@ -21,7 +21,7 @@ export default {
     */
     src: {
       type: String,
-      default: 'https://commbocc.github.io/hc-templates-jekyll/assets/images/Tampa-Downtown-Skyline.jpg'
+      default: 'https://commbocc.github.io/hc-templates-jekyll/assets/images/JoeChilluraPark.jpg'
     },
     /**
     * The height of the element in pixels

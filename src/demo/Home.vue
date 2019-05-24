@@ -2,22 +2,24 @@
   <main aria-labelledby="home-h1">
 
     <!--  -->
-    <section v-if="true" class="py-5" aria-labelledby="dynamicallyGeneratedSectionId1">
-      <div class="container my-0 my-lg-5">
+    <section v-if="true" class="bg-light py-5" aria-labelledby="dynamicallyGeneratedSectionId1">
+      <div class="container">
 
-        <h2 class="mt-0 text-center text-secondary font-serif font-weight-bold" id="dynamicallyGeneratedSectionId1">Common Resources</h2>
+        <h2 class="mt-0 text-left text-dark font-weight-bold display-4" id="dynamicallyGeneratedSectionId1">
+          Common Resources
+        </h2>
 
-        <hr>
+        <hr class="bg-dark mt-0 pt-1">
 
         <div class="row no-gutters align-items-stretch justify-content-center">
-          <div v-for="(link, i) in qLinks" class="col-md-6 col-lg-4 col-xl p-1">
+          <div v-for="(link, i) in qLinks" class="col-sm-6 col-lg-4 col-xl p-1">
             <a href="#" class="card v-card card-body list-group-item-action text-center d-flex flex-column h-100">
 
               <div class="mb-3">
                 <span class="fa-3x fa-fw text-secondary" :class="link.icon"></span>
               </div>
 
-              <div class="h5 font-serif">
+              <div class="h5">
                 {{ link.name }}
               </div>
 
@@ -41,9 +43,11 @@
     <section class="bg-white py-5" aria-labelledby="dynamicallyGeneratedSectionId2">
       <div class="container">
 
-        <h2 class="text-center text-primary font-serif font-weight-bold" id="dynamicallyGeneratedSectionId2">Featured Links</h2>
+        <h2 class="text-left display text-dark font-weight-bold display-4" id="dynamicallyGeneratedSectionId2">
+          Featured Links
+        </h2>
 
-        <hr>
+        <hr class="bg-dark mt-0 pt-1">
 
         <div class="row align-items-stretch justify-content-around">
           <div v-for="(link, i) in fLinks" class="col-md-6 col-lg-4 mb-4">
@@ -57,37 +61,95 @@
     </section>
 
     <!--  -->
-    <section class="row no-gutters align-items-stretch" aria-label="Featured News Articles">
-      <div v-for="(post, i) in gradCards" class="col-sm-6 d-flex">
-        <a href="#" is="hc-gradient-card" :sitecore-item="post" :date="new Date" :gradient="gradients[i]" :right="(i % 2 == 0)">
-        </a>
+    <section class="py-4 bg-dark gradient-diag-dark text-light">
+      <div class="container text-center">
+        <strong class="text-primary">
+          Some kind of an announcement, not too serious!
+        </strong>
+        <em class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</em>
       </div>
     </section>
 
     <!--  -->
-    <section class="py-5 bg-light">
+    <section class="bg-white py-5">
       <div class="container">
 
-        <p class="text-center">
+        <h2 class="text-left display text-dark font-weight-bold display-4" id="dynamicallyGeneratedSectionId2">
+          News &amp; Announcements
+        </h2>
+
+        <hr class="bg-dark mt-0 pt-1">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="mb-3">
+              <div is="HcCardNews" :sitecore-item="featured" class=""></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="list-group">
+              <a v-for="(item, i) in newsCards" href="#" class="p-3 list-group-item-action media border border-right-0 border-left-0">
+                <div class="media-body">
+                  <h6 class="mt-0 mb-1 text-secondary text-capitalize">
+                    {{ item.Heading }}
+                  </h6>
+                  <div class="small font-italic">
+                    {{ item.SubHeading }}
+                  </div>
+                  <span>{{ item.Excerpt }}</span>
+                  <span class="d-block text-muted small">Posted {{ item.PublishDate.toLocaleString() }} in {{ item.Category }}</span>
+                 </div>
+                <span class="fa-2x text-info ml-3 align-self-center" :class="item.Icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="false" class="row align-items-stretch">
+          <div v-for="(item, i) in newsCards" class="col-md-6 col-lg-4 mb-3">
+            <div is="HcCardNews" :sitecore-item="item" :hide-img="(i == 1 || i == 5)" class="v-card"></div>
+          </div>
+        </div>
+
+        <p class="text-center my-3">
           <a href="#" class="btn btn-lg btn-primary">
             Visit the Newsroom
           </a>
         </p>
 
-        <hr class="my-4">
+      </div>
+    </section>
+
+    <!--  -->
+    <section class="bg-light py-5">
+      <div class="container">
+
+        <h2 class="text-left display text-dark font-weight-bold display-4" id="dynamicallyGeneratedSectionId2">
+          Board of County Commissioners
+        </h2>
+
+        <hr class="bg-dark mt-0 pt-1">
 
         <!-- commissioners -->
         <div class="row align-items-top justify-content-around">
-          <div v-for="commissioner in commissioners" class="col-md-3 my-2">
+          <div v-for="commissioner in commissioners" class="col-6 col-sm-4 col-md-3 col-lg mt-2">
             <a href="#" :title="commissioner.name" class="text-dark text-decoration-none">
               <div class="embed-responsive embed-responsive-1by1 rounded-circle v-card" :style="`background-image: url(${commissioner.imgSrc}); background-size: cover;`"></div>
               <div class="text-center small mt-1">
-                <strong class="h6 d-block">{{ commissioner.name }}</strong>
-                {{ commissioner.title }}
+                <strong class="h6 d-block mb-0">{{ commissioner.name }}</strong>
+                <span class="text-muted">
+                  {{ commissioner.title }}
+                </span>
               </div>
             </a>
           </div>
         </div>
+
+        <p class="text-center">
+          <a href="#" class="btn btn-lg btn-outline-secondary mt-3">
+            Contact My Commissioner
+          </a>
+        </p>
 
       </div>
     </section>
@@ -100,9 +162,8 @@ import posts from './posts'
 
 export default {
   mounted () {
-    this.gradCards = posts.slice(0,4)
     this.$parent.jumbo = true
-    this.$parent.pageTitle = 'Hillsborough County Florida'
+    this.$parent.pageTitle = 'Hillsborough County'
   },
   computed: {
     gradients () {
@@ -128,7 +189,8 @@ export default {
       { name: 'Report Animal Emergency or Cruelty', icon: 'fas fa-exclamation-triangle' },
       { name: 'Volunteer & Help Pet Resources', icon: 'fas fa-plus' },
     ],
-    gradCards: [],
+    featured: posts[0],
+    newsCards: posts.slice(1,5),
     commissioners: [
       {
         name: 'Sandra Murman',

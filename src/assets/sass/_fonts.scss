@@ -1,6 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Crimson+Text:600,600i');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Encode+Sans:600');
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 .font-serif {
-  font-family: 'Crimson Text', serif !important;
+  font-family: serif !important;
+  // font-family: 'Noto Serif', serif !important;
+}
+
+.font-accent {
+  font-family: 'Encode Sans', sans-serif !important;
+}
+
+// .font-cursive {
+//   font-family: cursive;
+// }
+
+
+h1, h2, h3, h4, h5, h6 {
+  @extend .font-accent ;
 }

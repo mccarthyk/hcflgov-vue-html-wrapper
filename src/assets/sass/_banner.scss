@@ -1,9 +1,0 @@
-.hc-banner {
-  @include gradient-bg(theme-color("info"), 4%);
-  @include media-breakpoint-up(md) {
-    .hc-banner-title {
-      font-size: 3.5rem;
-      line-height: 1.1;
-    }
-  }
-}
